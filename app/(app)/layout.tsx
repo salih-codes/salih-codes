@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Header />
           <main className="w-full container md:w-2/3">{children}</main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
