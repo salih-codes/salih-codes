@@ -14,26 +14,26 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default buildConfig({
-	admin: {
-		user: Users.slug,
-		importMap: {
-			baseDir: path.resolve(dirname),
-		},
-	},
-	collections: [Users, Media],
-	editor: lexicalEditor(),
-	secret: process.env.PAYLOAD_SECRET || "",
-	typescript: {
-		outputFile: path.resolve(dirname, "payload-types.ts"),
-	},
-	db: vercelPostgresAdapter({
-		pool: {
-			connectionString: process.env.POSTGRES_URL || "",
-		},
-	}),
-	sharp,
-	plugins: [
-		payloadCloudPlugin(),
-		// storage-adapter-placeholder
-	],
+  admin: {
+    user: Users.slug,
+    importMap: {
+      baseDir: path.resolve(dirname),
+    },
+  },
+  collections: [Users, Media],
+  editor: lexicalEditor(),
+  secret: process.env.PAYLOAD_SECRET || "",
+  typescript: {
+    outputFile: path.resolve(dirname, "payload-types.ts"),
+  },
+  db: vercelPostgresAdapter({
+    pool: {
+      connectionString: process.env.POSTGRES_URL || "",
+    },
+  }),
+  sharp,
+  plugins: [
+    payloadCloudPlugin(),
+    // storage-adapter-placeholder
+  ],
 });
