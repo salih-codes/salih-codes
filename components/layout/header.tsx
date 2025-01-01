@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,18 +52,14 @@ export default function Header() {
                   transform: isMenuOpen ? "rotate(90deg)" : "rotate(0deg)",
                 }}
               >
-                {isMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
+                {isMenuOpen ? <X /> : <Menu />}
               </svg>
             </motion.div>
           </Button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            {["Blog", "Projects", "Contact", "Resources"].map((item, index) => {
+            {["Blog", "Projects", "Resources", "Contact"].map((item, index) => {
               const path = `/${item.toLowerCase()}`;
               const isActive = pathname === path;
               return (
@@ -71,7 +69,12 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.3 }}
                 >
-                  <Button variant={isActive ? "default" : "ghost"} asChild>
+                  <Button
+                    variant={
+                      isActive || item == "Contact" ? "default" : "ghost"
+                    }
+                    asChild
+                  >
                     <Link href={path}>{item}</Link>
                   </Button>
                 </motion.div>
@@ -91,7 +94,7 @@ export default function Header() {
               className="md:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4">
-                {["Blog", "Projects", "Contact", "Resources"].map(
+                {["Blog", "Projects", "Resources", "Contact"].map(
                   (item, index) => {
                     const path = `/${item.toLowerCase()}`;
                     const isActive = pathname === path;
@@ -103,9 +106,14 @@ export default function Header() {
                         transition={{ delay: index * 0.1 }}
                       >
                         <Button
-                          variant={isActive ? "default" : "ghost"}
+                          variant={
+                            isActive || item == "Contact" ? "default" : "ghost"
+                          }
                           asChild
-                          className="w-full justify-start"
+                          className={cn(
+                            "w-full justify-start",
+                            item == "Contact" && "w-max",
+                          )}
                         >
                           <Link
                             href={path}

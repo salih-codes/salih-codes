@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 export default function Home() {
   return (
-    <main className="w-full min-h-screen bg-background">
+    <main className="w-full lg:h-[60%] bg-background">
       <section className="container px-4 py-10 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start md:items-center">
           {/* Profile Image */}
@@ -23,7 +23,7 @@ export default function Home() {
           <div className="space-y-6 md:space-y-8">
             <div className="space-y-2">
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-                John Doe
+                Hi, I'm Salih! 👋
               </h1>
               <h2 className="text-lg md:text-xl text-muted-foreground">
                 Full Stack Developer
@@ -31,10 +31,13 @@ export default function Home() {
             </div>
 
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              I'm a passionate software developer with 5 years of experience
-              crafting elegant solutions to complex problems. Specializing in
-              web technologies and cloud architecture, I bring ideas to life
-              through clean, efficient code.
+              I'm a Full Stack Developer based in Nigeria with over four years
+              of experience creating elegant and high-performing web and mobile
+              applications for clients and businesses. I specialize in using
+              modern technologies such as React, TypeScript, Node.js, and AWS to
+              deliver impactful solutions. Currently, I'm expanding my expertise
+              into cybersecurity to help my clients make informed decisions
+              about securing their applications.
             </p>
 
             {/* Skills */}
@@ -44,12 +47,18 @@ export default function Home() {
               </h3>
               <div className="flex flex-wrap gap-1.5 md:gap-2">
                 {[
-                  "React",
+                  "React + React Native",
+                  "Vue",
+                  "Figma",
                   "TypeScript",
                   "Node.js",
                   "Next.js",
+                  "Nest.js",
                   "TailwindCSS",
                   "AWS",
+                  "MySQL",
+                  "PostgreSQL",
+                  "Docker",
                 ].map((skill) => (
                   <Badge
                     key={skill}
@@ -62,6 +71,30 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="space-y-3 md:space-y-4">
+              <h3 className="text-base md:text-lg font-semibold text-foreground">
+                Specialized Skills
+              </h3>
+              <div className="flex flex-wrap gap-1.5 md:gap-2">
+                {[
+                  "Full stack Development",
+                  "Web Scraping",
+                  "SEO Optimization",
+                  "Database Migration",
+                  "CI/CD",
+                  "Containerization",
+                ].map((specializedSkill) => (
+                  <Badge
+                    key={specializedSkill}
+                    variant="secondary"
+                    className="px-2.5 md:px-4 py-0.5 md:py-1 text-xs md:text-sm"
+                  >
+                    {specializedSkill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
             {/* Quick Facts */}
             <div className="grid grid-cols-2 gap-4 md:gap-8 pt-2 md:pt-4">
               <div className="space-y-1 md:space-y-2">
@@ -69,14 +102,14 @@ export default function Home() {
                   Based in
                 </h4>
                 <p className="text-sm md:text-base text-foreground">
-                  San Francisco, CA
+                  Abuja, Nigeria
                 </p>
               </div>
               <div className="space-y-1 md:space-y-2">
                 <h4 className="text-xs md:text-sm font-medium text-muted-foreground">
                   Experience
                 </h4>
-                <p className="text-sm md:text-base text-foreground">5+ Years</p>
+                <p className="text-sm md:text-base text-foreground">4+ Years</p>
               </div>
             </div>
           </div>
