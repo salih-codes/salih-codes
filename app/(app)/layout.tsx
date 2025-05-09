@@ -12,7 +12,27 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Salih Codes",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  ),
+  title: "Salih.Codes",
+  description: "Salih Codes - Full Stack Developer",
+  openGraph: {
+    title: "Salih Codes",
+    description: "Salih Codes - Full Stack Developer",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    siteName: "Salih Codes",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Salih Codes - Full Stack Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +50,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="w-full container md:w-2/3">{children}</main>
+          <main className="w-full container md:w-1/2">{children}</main>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

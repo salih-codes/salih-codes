@@ -3,21 +3,22 @@ import { Card } from "@/components/ui/card";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Salih Codes",
+  title: "Home | Salih.Codes",
 };
+
 export default function Home() {
   return (
     <main className="w-full lg:h-[60%] bg-background">
       <section className="container px-4 py-10 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start md:items-center">
+        <div className="grid grid-cols-1 gap-8 md:gap-12 items-start md:items-center">
           {/* Profile Image */}
-          <Card className="relative border-none shadow-none max-w-sm mx-auto md:max-w-none w-full">
+          {/* <Card className="relative border-none shadow-none max-w-sm mx-auto md:max-w-none w-full">
             <div className="aspect-square rounded-xl overflow-hidden bg-muted">
               <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm sm:text-base">
                 Profile Image Placeholder
               </div>
             </div>
-          </Card>
+          </Card> */}
 
           {/* About Content */}
           <div className="space-y-6 md:space-y-8">
@@ -37,7 +38,7 @@ export default function Home() {
               modern technologies such as React, TypeScript, Node.js, and AWS to
               deliver impactful solutions. Currently, I'm expanding my expertise
               into cybersecurity to help my clients make informed decisions
-              about securing their applications.
+              about securing their applications. IN my free time,
             </p>
 
             {/* Skills */}
@@ -49,11 +50,8 @@ export default function Home() {
                 {[
                   "React + React Native",
                   "Vue",
-                  "Figma",
                   "TypeScript",
                   "Node.js",
-                  "Next.js",
-                  "Nest.js",
                   "TailwindCSS",
                   "AWS",
                   "MySQL",
@@ -77,12 +75,11 @@ export default function Home() {
               </h3>
               <div className="flex flex-wrap gap-1.5 md:gap-2">
                 {[
-                  "Full stack Development",
+                  "Full Stack Development",
                   "Web Scraping",
                   "SEO Optimization",
                   "Database Migration",
                   "CI/CD",
-                  "Containerization",
                 ].map((specializedSkill) => (
                   <Badge
                     key={specializedSkill}

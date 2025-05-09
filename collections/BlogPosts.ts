@@ -1,7 +1,7 @@
 import type { CollectionConfig } from "payload";
 
-export const Media: CollectionConfig = {
-  slug: "post",
+export const BlogPosts: CollectionConfig = {
+  slug: "blog-posts",
   access: {
     read: () => true,
   },
@@ -19,8 +19,6 @@ export const Media: CollectionConfig = {
     {
       name: "publishedAt",
       type: "date",
-      defaultValue: new Date(),
-      required: true,
     },
     { name: "image", type: "upload", required: true, relationTo: "media" },
     {

@@ -4,7 +4,7 @@ import ProjectsScreen from "@/modules/projects/templates";
 
 export const metadata: Metadata = {
   title: "Projects | Salih.codes",
-  description: "Showcase of my latest development projects and work.",
+  description: "Showcase of my latest projects and work.",
 };
 
 export default function ProjectsPage() {

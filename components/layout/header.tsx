@@ -11,7 +11,12 @@ import { Menu, X } from "lucide-react";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-
+  const links = [
+    // "Blog",
+    // "Projects",
+    // "Resources",
+    "Contact",
+  ];
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -59,7 +64,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            {["Blog", "Projects", "Resources", "Contact"].map((item, index) => {
+            {links.map((item, index) => {
               const path = `/${item.toLowerCase()}`;
               const isActive = pathname === path;
               return (
@@ -71,7 +76,7 @@ export default function Header() {
                 >
                   <Button
                     variant={
-                      isActive || item == "Contact" ? "default" : "ghost"
+                      isActive || item === "Contact" ? "default" : "ghost"
                     }
                     asChild
                   >
@@ -94,38 +99,31 @@ export default function Header() {
               className="md:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4">
-                {["Blog", "Projects", "Resources", "Contact"].map(
-                  (item, index) => {
-                    const path = `/${item.toLowerCase()}`;
-                    const isActive = pathname === path;
-                    return (
-                      <motion.div
-                        key={item}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
+                {links.map((item, index) => {
+                  const path = `/${item.toLowerCase()}`;
+                  const isActive = pathname === path;
+                  return (
+                    <motion.div
+                      key={item}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Button
+                        variant={isActive ? "default" : "ghost"}
+                        asChild
+                        className={cn(
+                          "w-full justify-start",
+                          item === "Contact" && "w-max bg-primary",
+                        )}
                       >
-                        <Button
-                          variant={
-                            isActive || item == "Contact" ? "default" : "ghost"
-                          }
-                          asChild
-                          className={cn(
-                            "w-full justify-start",
-                            item == "Contact" && "w-max",
-                          )}
-                        >
-                          <Link
-                            href={path}
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {item}
-                          </Link>
-                        </Button>
-                      </motion.div>
-                    );
-                  },
-                )}
+                        <Link href={path} onClick={() => setIsMenuOpen(false)}>
+                          {item}
+                        </Link>
+                      </Button>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           )}
