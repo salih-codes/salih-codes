@@ -13,7 +13,7 @@ export default function Header() {
   const pathname = usePathname();
   const links = [
     // "Blog",
-    // "Projects",
+    "Projects",
     // "Resources",
     "Contact",
   ];
@@ -21,10 +21,10 @@ export default function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100 }}
+      transition={{ type: "spring", stiffness: 20 }}
       className="sticky top-0 z-50 w-full flex justify-center px-4 py-2"
     >
-      <div className="w-full md:max-w-[50%] bg-white/30 backdrop-blur-md border border-white/20 px-6 py-4 rounded-2xl shadow-lg transition-all duration-300 hover:bg-white/40">
+      <div className="w-full h-16 md:max-w-[50%] bg-white/30 backdrop-blur-md border border-white/20 px-6 py-3 rounded-4xl shadow-lg transition-all duration-300 hover:bg-white/40">
         <nav className="flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0 }}
@@ -75,10 +75,12 @@ export default function Header() {
                   transition={{ delay: index * 0.3 }}
                 >
                   <Button
-                    variant={
-                      isActive || item === "Contact" ? "default" : "ghost"
-                    }
+                    size="sm"
+                    variant={item === "Contact" ? "default" : "ghost"}
                     asChild
+                    className={cn(
+                      isActive && item !== "Contact" && "text-primary",
+                    )}
                   >
                     <Link href={path}>{item}</Link>
                   </Button>

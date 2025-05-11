@@ -5,6 +5,9 @@ export const BlogPosts: CollectionConfig = {
   access: {
     read: () => true,
   },
+  versions: {
+    drafts: true,
+  },
   fields: [
     {
       name: "title",
@@ -20,6 +23,7 @@ export const BlogPosts: CollectionConfig = {
       name: "publishedAt",
       type: "date",
     },
+
     { name: "image", type: "upload", required: true, relationTo: "media" },
     {
       name: "author",

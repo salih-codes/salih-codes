@@ -7,7 +7,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/layout/header";
 
 const outfit = Outfit({
-  variable: "--font-outfit-sans",
   subsets: ["latin"],
 });
 
@@ -42,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${outfit.variable} min-h-screen font-sans antialiased`}>
+      <body className={`${outfit.className} min-h-screen antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -50,7 +49,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="w-full container md:w-1/2">{children}</main>
+          <main className="w-full container mx-auto md:w-1/2">{children}</main>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

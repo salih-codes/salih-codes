@@ -10,6 +10,9 @@ import sharp from "sharp";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { BlogPosts } from "./collections/BlogPosts";
+import { SkillsAndTools } from "./collections/SkillsAndTools";
+import { Projects } from "./collections/Projects";
+import { Clients } from "./collections/Clients";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -21,7 +24,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, BlogPosts],
+  collections: [Users, Media, BlogPosts, SkillsAndTools, Projects, Clients],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
