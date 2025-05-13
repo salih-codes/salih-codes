@@ -1,8 +1,7 @@
 onlyBuiltDependencies:
-  - '@biomejs/biome'
-  - '@tailwindcss/oxide'
-  - '@vercel/speed-insights'
+  - "@biomejs/biome"
+  - "@tailwindcss/oxide"
+  - "@vercel/speed-insights"
   - bufferutil
-  - esbuild
   - sharp
   - utf-8-validate

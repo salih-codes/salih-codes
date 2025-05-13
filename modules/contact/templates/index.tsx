@@ -11,11 +11,11 @@ import { Input } from "@/components/ui/input";
 import type React from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
 export default function ContactScreen() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Add your form submission logic here
   };
 
   return (
@@ -134,7 +134,6 @@ export default function ContactScreen() {
                 <Linkedin className="h-5 w-5" />
                 <div>
                   <p className="font-medium">LinkedIn</p>
-                  <p className="text-sm text-muted-foreground">@salihoztekin</p>
                 </div>
               </a>
             </CardContent>

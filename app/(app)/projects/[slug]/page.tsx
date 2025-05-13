@@ -41,7 +41,9 @@ export default async function ProjectDetailsPage({
   const { slug = "" } = await paramsPromise;
   const project = await queryProjectBySlug({ slug });
 
-  const { image } = project;
+  const { image, stack } = project;
+
+  console.log(stack);
   return (
     <article className="min-h-screen px-4 space-y-6">
       <div className="min-h-64 select-none">
