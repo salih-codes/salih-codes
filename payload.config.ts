@@ -2,6 +2,7 @@
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { seoPlugin } from "@payloadcms/plugin-seo";
 import path from "node:path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "node:url";
@@ -38,6 +39,11 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    seoPlugin({
+      collections: ["pages"],
+      uploadsCollection: "media",
+      generateTitle: ({ doc }) => `Salih.codes — ${doc.title}`,
+      generateDescription: ({ doc }) => doc.excerpt,
+    }),
   ],
 });

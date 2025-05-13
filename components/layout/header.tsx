@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {

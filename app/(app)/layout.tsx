@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Salih Codes",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/open-graph-image.png",
         width: 1200,
         height: 630,
         alt: "Salih Codes - Full Stack Developer",

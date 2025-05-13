@@ -1,7 +1,11 @@
+import { slugField } from "@/fields/slug";
 import type { CollectionConfig } from "payload";
 
 export const Projects: CollectionConfig = {
   slug: "projects",
+  admin: {
+    useAsTitle: "title",
+  },
   access: {
     read: () => true,
   },
@@ -10,23 +14,46 @@ export const Projects: CollectionConfig = {
   },
   fields: [
     {
-      name: "title",
-      type: "text",
-      required: true,
+      type: "tabs",
+      tabs: [
+        {
+          fields: [
+            {
+              name: "title",
+              type: "text",
+              required: true,
+            },
+            {
+              name: "image",
+              type: "upload",
+              required: true,
+              relationTo: "media",
+            },
+            {
+              name: "content",
+              type: "richText",
+              required: true,
+            },
+          ],
+          label: "Content",
+        },
+      ],
     },
-    {
-      name: "description",
-      type: "richText",
-      required: true,
-    },
+
     {
       name: "publishedAt",
       type: "date",
+      admin: {
+        position: "sidebar",
+      },
     },
-    { name: "image", type: "upload", required: true, relationTo: "media" },
+    ...slugField(),
     {
       name: "type",
       type: "radio",
+      admin: {
+        position: "sidebar",
+      },
       options: [
         {
           label: "Personal",
@@ -40,7 +67,7 @@ export const Projects: CollectionConfig = {
           label: "Open Source",
           value: "open-source",
         },
-        { label: "employer", value: "employer" },
+        { label: "Employer", value: "employer" },
       ],
       required: true,
     },
@@ -49,10 +76,16 @@ export const Projects: CollectionConfig = {
       type: "relationship",
       relationTo: "skills-and-tools",
       hasMany: true,
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: "contribution",
       type: "radio",
+      admin: {
+        position: "sidebar",
+      },
       options: [
         { label: "solo", value: "solo" },
         { label: "team", value: "team" },
@@ -62,16 +95,45 @@ export const Projects: CollectionConfig = {
     {
       name: "github",
       type: "text",
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: "website",
       type: "text",
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: "client",
       type: "relationship",
       relationTo: "clients",
+      admin: {
+        position: "sidebar",
+      },
       hasMany: false,
+    },
+    {
+      name: "clientTestimonial",
+      admin: {
+        position: "sidebar",
+      },
+      type: "textarea",
+    },
+    {
+      name: "completionStatus",
+      admin: {
+        position: "sidebar",
+      },
+      type: "radio",
+      options: [
+        { label: "In Progress", value: "in_progress" },
+        { label: "Completed", value: "completed" },
+        { label: "On Hold", value: "on_hold" },
+      ],
+      required: true,
     },
   ],
 };

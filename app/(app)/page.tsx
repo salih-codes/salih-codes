@@ -1,12 +1,33 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import type { Metadata } from "next";
+import { getPayload } from "payload";
+import configPromise from "@payload-config";
 
 export const metadata: Metadata = {
   title: "Home | Salih.Codes",
 };
 
-export default function Home() {
+export default async function HomePage() {
+  const payload = await getPayload({ config: configPromise });
+
+  const skillsAndTechnologies = await payload.find({
+    collection: "skills-and-tools",
+  });
+
+  type Skill = (typeof skillsAndTechnologies.docs)[number];
+  const groupedSkills = Object.entries(
+    skillsAndTechnologies.docs.reduce(
+      (acc: Record<string, Skill[]>, item: Skill) => {
+        const type = item.type || "Unknown";
+        if (!acc[type]) acc[type] = [];
+        acc[type].push(item);
+        return acc;
+      },
+      {},
+    ),
+  ).map(([type, items]) => ({ type, items }));
+
   return (
     <main className="w-full lg:h-[60%] bg-background">
       <section className="container px-4 py-10 md:py-20">
@@ -42,55 +63,30 @@ export default function Home() {
             </p>
 
             {/* Skills */}
-            <div className="space-y-3 md:space-y-4">
-              <h3 className="text-base md:text-lg font-semibold text-foreground">
-                Technical Skills
-              </h3>
-              <div className="flex flex-wrap gap-1.5 md:gap-2">
-                {[
-                  "React + React Native",
-                  "Vue",
-                  "TypeScript",
-                  "Node.js",
-                  "TailwindCSS",
-                  "AWS",
-                  "MySQL",
-                  "PostgreSQL",
-                  "Docker",
-                ].map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="secondary"
-                    className="px-2.5 md:px-4 py-0.5 md:py-1 text-xs md:text-sm"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
+            {groupedSkills.map((group) => (
+              <div key={group.type} className="space-y-3 md:space-y-4">
+                <h3 className="text-base md:text-lg capitalize font-semibold text-foreground">
+                  {group.type === "Unknown"
+                    ? "Other Skills"
+                    : group.type === "language"
+                      ? "Programming Languages"
+                      : group.type === "library"
+                        ? "Libraries"
+                        : group.type}
+                </h3>
+                <div className="flex flex-wrap gap-1.5 md:gap-2">
+                  {group.items.map((skill) => (
+                    <Badge
+                      key={skill.title}
+                      variant="secondary"
+                      className="px-2.5 md:px-4 py-0.5 md:py-1 text-xs md:text-sm"
+                    >
+                      {skill.title}
+                    </Badge>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div className="space-y-3 md:space-y-4">
-              <h3 className="text-base md:text-lg font-semibold text-foreground">
-                Specialized Skills
-              </h3>
-              <div className="flex flex-wrap gap-1.5 md:gap-2">
-                {[
-                  "Full Stack Development",
-                  "Web Scraping",
-                  "SEO Optimization",
-                  "Database Migration",
-                  "CI/CD",
-                ].map((specializedSkill) => (
-                  <Badge
-                    key={specializedSkill}
-                    variant="secondary"
-                    className="px-2.5 md:px-4 py-0.5 md:py-1 text-xs md:text-sm"
-                  >
-                    {specializedSkill}
-                  </Badge>
-                ))}
-              </div>
-            </div>
+            ))}
 
             {/* Quick Facts */}
             <div className="grid grid-cols-2 gap-4 md:gap-8 pt-2 md:pt-4">
@@ -101,12 +97,6 @@ export default function Home() {
                 <p className="text-sm md:text-base text-foreground">
                   Abuja, Nigeria
                 </p>
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <h4 className="text-xs md:text-sm font-medium text-muted-foreground">
-                  Experience
-                </h4>
-                <p className="text-sm md:text-base text-foreground">4+ Years</p>
               </div>
             </div>
           </div>
