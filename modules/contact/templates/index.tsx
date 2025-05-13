@@ -102,19 +102,19 @@ export default function ContactScreen() {
             </CardHeader>
             <CardContent className="space-y-4">
               <a
-                href="mailto:hello@salih.codes"
+                href="mailto:salih.codes@gmail.com"
                 className="flex items-center space-x-3 rounded-lg border p-4 transition-colors hover:bg-muted"
               >
                 <Mail className="h-5 w-5" />
                 <div>
                   <p className="font-medium">Email</p>
                   <p className="text-sm text-muted-foreground">
-                    hello@salih.codes
+                    salih.codes@gmail.com
                   </p>
                 </div>
               </a>
               <a
-                href="https://github.com/salihoztekin"
+                href="https://github.com/salih-codes"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 rounded-lg border p-4 transition-colors hover:bg-muted"
@@ -122,11 +122,11 @@ export default function ContactScreen() {
                 <Github className="h-5 w-5" />
                 <div>
                   <p className="font-medium">GitHub</p>
-                  <p className="text-sm text-muted-foreground">@salihoztekin</p>
+                  <p className="text-sm text-muted-foreground">@salih-codes</p>
                 </div>
               </a>
               <a
-                href="https://linkedin.com/in/salihoztekin"
+                href="https://www.linkedin.com/in/mohammed-bukar-b79b30332"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 rounded-lg border p-4 transition-colors hover:bg-muted"

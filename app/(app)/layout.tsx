@@ -5,21 +5,20 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/layout/header";
+import { getServerSideURL } from "@/lib/utils/get-url";
 
 const outfit = Outfit({
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  ),
+  metadataBase: new URL(getServerSideURL()),
   title: "Salih.Codes",
   description: "Salih Codes - Full Stack Developer",
   openGraph: {
     title: "Salih Codes",
     description: "Salih Codes - Full Stack Developer",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    url: getServerSideURL(),
     siteName: "Salih Codes",
     images: [
       {

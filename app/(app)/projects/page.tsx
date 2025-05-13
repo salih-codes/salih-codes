@@ -16,7 +16,5 @@ export default async function ProjectsPage() {
     collection: "projects",
   });
 
-  console.log("Projects:", projects);
-
   return <ProjectsScreen projects={projects.docs} />;
 }
