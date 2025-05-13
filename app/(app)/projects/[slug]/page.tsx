@@ -39,8 +39,6 @@ export default async function ProjectDetailsPage({
   params: paramsPromise,
 }: Args) {
   const { slug = "" } = await paramsPromise;
-  // const url = `/posts/${slug}`;
-  // console.log("url", url);
   const project = await queryProjectBySlug({ slug });
 
   const { image } = project;
