@@ -9,8 +9,8 @@ const defaultOpenGraph: Metadata["openGraph"] = {
       url: `${getServerSideURL()}/open-graph-image.png`,
     },
   ],
-  siteName: "Salih.codes",
-  title: "Salih.codes",
+  siteName: "Mohammed Salih",
+  title: "Mohammed Salih",
 };
 
 export const mergeOpenGraph = (

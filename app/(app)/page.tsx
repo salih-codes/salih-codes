@@ -5,7 +5,7 @@ import { getPayload } from "payload";
 import configPromise from "@payload-config";
 
 export const metadata: Metadata = {
-  title: "Home | Salih.Codes",
+  title: "Home | Mohammed Salih",
 };
 
 export default async function HomePage() {

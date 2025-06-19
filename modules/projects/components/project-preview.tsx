@@ -5,7 +5,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import Link from "next/link";
-import type { Project } from "@/payload-types";
+import type { Project, SkillsAndTool } from "@/payload-types";
 import { Media } from "@/components/media";
 
 export const ProjectCard = ({ project }: { project: Project }) => {
@@ -23,14 +23,14 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         </CardHeader>
 
         <CardFooter className="flex flex-wrap gap-2">
-          {/* {project.tags.map((tag) => (
+          {project.stack?.map((tool: any) => (
             <span
-              key={tag}
+              key={tool.id}
               className="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200"
             >
-              {tag}
+              {tool.title}
             </span>
-          ))} */}
+          ))}
         </CardFooter>
       </Card>
     </Link>

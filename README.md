@@ -1,4 +1,4 @@
-# Salih.Codes - Personal Portfolio
+# Mohammed Salih - Personal Portfolio
 
 ## 👋 About Me
 

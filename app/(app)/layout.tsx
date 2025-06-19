@@ -13,19 +13,21 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
-  title: "Salih.Codes",
-  description: "Salih Codes - Full Stack Developer",
+  title: "Mohammed Salih | Full Stack developer",
+  description:
+    "Hi, I'm Mohammed Salih and I like bringing ideas to reality through code.",
   openGraph: {
-    title: "Salih Codes",
-    description: "Salih Codes - Full Stack Developer",
+    title: "Mohammed Salih",
+    description:
+      "Hi, I'm Mohammed Salih and I like bringing ideas to reality through code.",
     url: getServerSideURL(),
-    siteName: "Salih Codes",
+    siteName: "Mohammed Salih",
     images: [
       {
         url: "/open-graph-image.png",
         width: 1200,
         height: 630,
-        alt: "Salih Codes - Full Stack Developer",
+        alt: "Mohammed Salih - Full Stack Developer",
       },
     ],
     locale: "en_US",

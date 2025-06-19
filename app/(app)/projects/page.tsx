@@ -5,7 +5,7 @@ import { getPayload } from "payload";
 import configPromise from "@payload-config";
 
 export const metadata: Metadata = {
-  title: "Projects | Salih.codes",
+  title: "Salih's projects and contributions",
   description: "Showcase of my latest projects and work.",
 };
 

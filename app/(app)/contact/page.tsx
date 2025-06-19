@@ -3,7 +3,7 @@ import type React from "react";
 import ContactScreen from "@/modules/contact/templates";
 
 export const metadata: Metadata = {
-  title: "Contact | Salih.codes",
+  title: "Ways to reach Mohammed Salih",
 };
 export default function ContactPage() {
   return <ContactScreen />;

@@ -43,7 +43,7 @@ export default buildConfig({
     seoPlugin({
       collections: ["pages"],
       uploadsCollection: "media",
-      generateTitle: ({ doc }) => `Salih.codes — ${doc.title}`,
+      generateTitle: ({ doc }) => `Mohammed Salih — ${doc.title}`,
       generateDescription: ({ doc }) => doc.excerpt,
     }),
     vercelBlobStorage({

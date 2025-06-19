@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Blog | Salih.codes",
+  title: "Write ups by Mohammed Salih",
   description:
     "Read my latest blog posts about web development, programming, and technology.",
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Resources | Salih.codes",
+  title: "Some valuable resources",
   description:
     "Curated resources for learning web development and programming.",
 };
